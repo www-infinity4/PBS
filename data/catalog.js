@@ -1,4 +1,5 @@
-// PBS programming drawn from official PBS YouTube channels.
+// PBS programming from official PBS, American Experience, NOVA and FRONTLINE channels.
+// Fresh-deck policy: one unique verified program per guide slot; no title is dealt twice in a day.
 window.PBS_PROGRAMS={
   newsHour:{id:"PBS-NEWSHOUR",title:"PBS NewsHour",year:2026,era:"Current Affairs",collection:"PBS NewsHour · Full Broadcast",runtimeSeconds:3600,videoId:"98_ytqNoUto",cleared:true,watchUrl:"https://www.youtube.com/watch?v=98_ytqNoUto"},
   washingtonWeek:{id:"PBS-WW",title:"Washington Week with The Atlantic",year:2026,era:"Public Affairs",collection:"PBS · Full Episode",runtimeSeconds:1560,videoId:"GwP6-EvQJhE",cleared:true,watchUrl:"https://www.youtube.com/watch?v=GwP6-EvQJhE"},
@@ -6,19 +7,20 @@ window.PBS_PROGRAMS={
   bonnieClyde:{id:"PBS-AE-BC",title:"The Tragic Romance of Bonnie & Clyde",year:2026,era:"American Experience",collection:"History · Full Documentary",runtimeSeconds:3600,videoId:"fHCWbsRWvPc",cleared:true,watchUrl:"https://www.youtube.com/watch?v=fHCWbsRWvPc"},
   vicePresident:{id:"PBS-AE-VP",title:"The American Vice President",year:2024,era:"American Experience",collection:"Government · Full Documentary",runtimeSeconds:3600,videoId:"I7uXCTZOYMU",cleared:true,watchUrl:"https://www.youtube.com/watch?v=I7uXCTZOYMU"},
   spaceRace:{id:"PBS-AE-SPACE",title:"The Untold Story of the Space Race",year:2026,era:"American Experience",collection:"Science & History · Full Documentary",runtimeSeconds:3600,videoId:"uWmd-6vsdus",cleared:true,watchUrl:"https://www.youtube.com/watch?v=uWmd-6vsdus"},
-  atomicBomb:{id:"PBS-NOVA-ATOM",title:"Why the U.S. Hid the Truth About the Atomic Bomb",year:2026,era:"NOVA",collection:"Science & History · Full Documentary",runtimeSeconds:3700,videoId:"Pp8mh8iZTe4",cleared:true,watchUrl:"https://www.youtube.com/watch?v=Pp8mh8iZTe4"},
   clinton:{id:"PBS-AE-CLINTON",title:"Clinton — Episode 1",year:2012,era:"American Experience",collection:"Biography · Full Documentary",runtimeSeconds:6600,videoId:"yQci_Z3DIrw",cleared:true,watchUrl:"https://www.youtube.com/watch?v=yQci_Z3DIrw"},
   flyWithMe:{id:"PBS-AE-FLY",title:"Fly With Me",year:2024,era:"American Experience",collection:"History · Full Documentary",runtimeSeconds:6900,videoId:"AN0BMDkeQrQ",cleared:true,watchUrl:"https://www.youtube.com/watch?v=AN0BMDkeQrQ"},
   poisonSquad:{id:"PBS-AE-POISON",title:"The Poison Squad",year:2020,era:"American Experience",collection:"Public Health · Full Documentary",runtimeSeconds:6600,videoId:"LXAQ_-Em89g",cleared:true,watchUrl:"https://www.youtube.com/watch?v=LXAQ_-Em89g"},
-  raceUnderground:{id:"PBS-AE-TRANSIT",title:"The Race Underground",year:2017,era:"American Experience",collection:"Cities & Innovation · Full Documentary",runtimeSeconds:3300,videoId:"BnNw-og3wjM",cleared:true,watchUrl:"https://www.youtube.com/watch?v=BnNw-og3wjM"}
+  raceUnderground:{id:"PBS-AE-TRANSIT",title:"The Race Underground",year:2017,era:"American Experience",collection:"Cities & Innovation · Full Documentary",runtimeSeconds:3300,videoId:"BnNw-og3wjM",cleared:true,watchUrl:"https://www.youtube.com/watch?v=BnNw-og3wjM"},
+  gildedAge:{id:"PBS-AE-GILDED",title:"The Gilded Age",year:2018,era:"American Experience",collection:"American History · Full Documentary",runtimeSeconds:7200,videoId:"yjpYzFtxfjU",cleared:true,watchUrl:"https://www.youtube.com/watch?v=yjpYzFtxfjU"},
+  oldestDna:{id:"PBS-NOVA-DNA",title:"Hunt for the Oldest DNA",year:2024,era:"NOVA",collection:"Science · Full Documentary",runtimeSeconds:3190,videoId:"c2ppreiB1PQ",cleared:true,watchUrl:"https://www.youtube.com/watch?v=c2ppreiB1PQ"},
+  alaskaVillages:{id:"PBS-FRONTLINE-ALASKA",title:"Alaska's Vanishing Native Villages",year:2025,era:"FRONTLINE",collection:"Climate & Communities · Full Documentary",runtimeSeconds:3300,videoId:"9JCOdWVLZm4",cleared:true,watchUrl:"https://www.youtube.com/watch?v=9JCOdWVLZm4"},
+  prisonState:{id:"PBS-FRONTLINE-PRISON",title:"Prison State",year:2014,era:"FRONTLINE",collection:"Justice · Full Documentary",runtimeSeconds:5100,videoId:"9PNAuBQRuOs",cleared:true,watchUrl:"https://www.youtube.com/watch?v=9PNAuBQRuOs"},
+  ageOfAi:{id:"PBS-FRONTLINE-AI",title:"In the Age of AI",year:2019,era:"FRONTLINE",collection:"Technology · Full Documentary",runtimeSeconds:6900,videoId:"5dZ_lvDgevk",cleared:true,watchUrl:"https://www.youtube.com/watch?v=5dZ_lvDgevk"},
+  poorKids:{id:"PBS-FRONTLINE-POOR-KIDS",title:"Poor Kids",year:2020,era:"FRONTLINE",collection:"Families & Economy · Full Documentary",runtimeSeconds:3300,videoId:"HQvetA1P4Yg",cleared:true,watchUrl:"https://www.youtube.com/watch?v=HQvetA1P4Yg"},
+  teensTechnology:{id:"PBS-FRONTLINE-TEENS",title:"Teens, Social Media, and Technology",year:2019,era:"FRONTLINE",collection:"Culture & Technology · Full Documentary",runtimeSeconds:3300,videoId:"JqamKb7gTWY",cleared:true,watchUrl:"https://www.youtube.com/watch?v=JqamKb7gTWY"},
+  atomicBomb:{id:"PBS-NOVA-ATOM",title:"Why the U.S. Hid the Truth About the Atomic Bomb",year:2026,era:"NOVA",collection:"Science & History · Full Documentary",runtimeSeconds:3700,videoId:"Pp8mh8iZTe4",cleared:true,disabled:true,watchUrl:"https://www.youtube.com/watch?v=Pp8mh8iZTe4"}
 };
-window.PBS_INLINE_KEYS=Object.keys(window.PBS_PROGRAMS);
-const half=["newsHour","washingtonWeek"],docs=["apollo","bonnieClyde","vicePresident","spaceRace","atomicBomb","clinton","flyWithMe","poisonSquad","raceUnderground"];
+window.PBS_INLINE_KEYS=Object.keys(window.PBS_PROGRAMS).filter(key=>!window.PBS_PROGRAMS[key].disabled);
 window.PBS_DAY_TEMPLATE=[];
-for(let minute=0,index=0;minute<1440;index++){
-  const publicAffairs=index%4===0;
-  const duration=publicAffairs?60:120;
-  window.PBS_DAY_TEMPLATE.push({minute:minute,duration:Math.min(duration,1440-minute),choices:publicAffairs?half:docs});
-  minute+=duration;
-}
-window.INFINITY_CHANNEL={id:"PBS",era:"Public media",reset:"12:00 AM viewer local time",feature:"Full documentaries and public-affairs programs"};
+for(let minute=0,index=0;minute<1440;index++){const duration=index%4===0?60:120;window.PBS_DAY_TEMPLATE.push({minute:minute,duration:Math.min(duration,1440-minute)});minute+=duration}
+window.INFINITY_CHANNEL={id:"PBS",era:"Public media",reset:"12:00 AM viewer local time",feature:"Fresh full documentaries and public-affairs programs",schedulePolicy:"Unique fresh-deck rotation; disabled and failed sources are never scheduled."};
