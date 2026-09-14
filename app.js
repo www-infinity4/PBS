@@ -5,15 +5,7 @@
   let player=null,playerReady=false,apiRequested=false,entered=false,loadedKey="",loadedProgramVideoId="",scheduleKey="",schedule=[],mode="live",timeShiftBaseMs=0,timeShiftStartedMs=0,startupPending=false,startupAttempts=0,startupTimer=0;
   const failedVideoIds=new Set();
   function activeClockMs(){return mode==="live"?Date.now():timeShiftBaseMs+(Date.now()-timeShiftStartedMs);}
-  function buildSchedule(nowMs){
-    const built=engine.createDaySchedule(nowMs,programs,template);
-    return built.map((block,index)=>{
-      if(block.movie.videoId&&block.movie.cleared&&!failedVideoIds.has(block.movie.videoId))return block;
-      const choices=(template[index]&&template[index].choices)||[];
-      const fallbackKey=choices.find(key=>{const item=programs[key];return item&&item.videoId&&item.cleared&&!failedVideoIds.has(item.videoId);});
-      const networkFallback=(window.PBS_INLINE_KEYS||[]).find(key=>{const item=programs[key];return item&&item.videoId&&item.cleared&&!failedVideoIds.has(item.videoId);});return fallbackKey||networkFallback?{...block,movie:programs[fallbackKey||networkFallback]}:block;
-    });
-  }
+  function buildSchedule(nowMs){return engine.createDaySchedule(nowMs,programs,template,failedVideoIds)}
   function ensureSchedule(nowMs){const key=engine.dateKey(nowMs);if(key!==scheduleKey){scheduleKey=key;schedule=buildSchedule(nowMs);renderGuide();}}
   function formatStationTime(ms){return new Intl.DateTimeFormat("en-US",{timeZone:engine.TIME_ZONE,hour:"numeric",minute:"2-digit"}).format(new Date(ms));}
   function formatDuration(seconds){const mins=Math.max(0,Math.ceil(seconds/60));return mins>=60?`${Math.floor(mins/60)}h ${mins%60}m`:`${mins} min`;}
